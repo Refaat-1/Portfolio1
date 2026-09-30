@@ -118,21 +118,7 @@
           </div>
         </div>
 
-        <div class="hero-avatar-wrapper">
-          <div class="avatar-container">
-            <div class="avatar-image-box">
-              <img src="./assets/images/my-avatar.png" alt="Refaat Elia Avatar" />
-            </div>
-          </div>
-          <div class="orbit-badge orbit-badge-1">
-            <ion-icon name="flame-outline" style="color:var(--accent-cyan);"></ion-icon>
-            <span>Vision Transformers &amp; RAG</span>
-          </div>
-          <div class="orbit-badge orbit-badge-2">
-            <ion-icon name="code-slash-outline" style="color:var(--accent-purple);"></ion-icon>
-            <span>PyTorch &amp; Multi-Agent AI</span>
-          </div>
-        </div>
+
       </div>
     </section>
 
@@ -194,11 +180,7 @@
             </div>
 
             <div style="display:flex; gap:1rem;">
-              <button class="btn-primary" id="run-sim-btn">
-                <ion-icon name="play-circle-outline"></ion-icon>
-                <span>Run Agent Simulation</span>
-              </button>
-              <button class="btn-outline inspect-btn" data-project-id="jobpilot">
+              <button class="btn-primary inspect-btn" data-project-id="jobpilot">
                 <ion-icon name="search-outline"></ion-icon>
                 <span>Deep Dive Architecture</span>
               </button>
@@ -207,29 +189,6 @@
 
           <div class="spotlight-visual-box">
             <img src="./assets/images/jobpilot-preview.png" alt="JobPilot AI Interface Preview" />
-          </div>
-        </div>
-
-        <!-- Interactive Simulator Drawer -->
-        <div class="sim-container">
-          <div class="sim-header">
-            <span class="sim-title">
-              <ion-icon name="terminal-outline" style="color:var(--accent-cyan);"></ion-icon>
-              Live Multi-Agent Workflow Simulator
-            </span>
-            <span style="font-size:0.85rem; color:var(--text-dim);">Click 'Run Agent Simulation' above to trigger</span>
-          </div>
-
-          <div class="sim-steps">
-            <div class="sim-step" id="step-0">1. CV Parsing Agent</div>
-            <div class="sim-step" id="step-1">2. Job Match Agent</div>
-            <div class="sim-step" id="step-2">3. FAISS RAG Search</div>
-            <div class="sim-step" id="step-3">4. Writer Agent</div>
-            <div class="sim-step" id="step-4">5. Report Exporter</div>
-          </div>
-
-          <div class="sim-output-box" id="sim-output">
-            [Ready] Click "Run Agent Simulation" to test the 5-agent pipeline in real time...
           </div>
         </div>
       </div>

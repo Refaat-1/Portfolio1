@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initTypewriter();
   initStatsCounter();
   initProjectFilters();
-  initJobPilotSimulator();
   initModal();
   initTerminalTabs();
   initNavbarScroll();
@@ -188,76 +187,7 @@ function initStatsCounter() {
   statNumbers.forEach(el => observer.observe(el));
 }
 
-/* ==========================================================================
-   4. JOBPILOT MULTI-AGENT SIMULATOR
-   ========================================================================== */
-function initJobPilotSimulator() {
-  const simBtn = document.getElementById('run-sim-btn');
-  const steps = document.querySelectorAll('.sim-step');
-  const outputBox = document.getElementById('sim-output');
-  if (!simBtn || !outputBox) return;
 
-  const simulationLogs = [
-    {
-      step: 0,
-      log: `[AGENT 1: CV Parsing Agent]\n> Parsing Candidate CV: "Refaat Elia Eshak"\n> Extracted Skills: PyTorch, Vision Transformers (ViT), LLMs, LangChain, RAG, FAISS, FastAPI, Python.\n> Education: B.Sc. Computer Science (AI Major, GPA 3.43).\n✓ Candidate Profile Vectorized.`
-    },
-    {
-      step: 1,
-      log: `[AGENT 2: Job Requirements Agent]\n> Parsing Job Description: "Senior AI & RAG Engineer @ Tech Global"\n> Core Requirements Identified:\n  - Deep Learning & PyTorch (Weight: 30%)\n  - RAG Architecture & Vector Search (Weight: 35%)\n  - Agent Frameworks & Production Deployment (Weight: 35%)\n✓ Requirements Matrix Structured.`
-    },
-    {
-      step: 2,
-      log: `[AGENT 3: FAISS Vector RAG Retriever]\n> Querying FAISS Vector Database for candidate evidence...\n> Top Match 1: Graduation Project RAD-DINO + RAG Chatbot (Similarity: 0.96)\n> Top Match 2: Tips Hindawi LLM & LangChain RAG Intern (Similarity: 0.94)\n> Match Score: 95.4% Strong Alignment!`
-    },
-    {
-      step: 3,
-      log: `[AGENT 4: Response & Cover Letter Generator]\n> Generating tailored cover letter targeting RAG & Agentic workflows...\n> Formulating evidence-backed interview responses based strictly on candidate projects.\n✓ Cover Letter & Prep Sheet Generated.`
-    },
-    {
-      step: 4,
-      log: `[AGENT 5: Quality Assurance & PDF Exporter]\n> Running alignment verification & hallucination check...\n> Grounding Verification: 100% (No unsupported claims detected).\n> Compiling report via ReportLab PDF engine...\n✓ Executive Job Application PDF Ready for Download!`
-    }
-  ];
-
-  let isRunning = false;
-
-  simBtn.addEventListener('click', () => {
-    if (isRunning) return;
-    isRunning = true;
-    simBtn.disabled = true;
-    simBtn.innerHTML = `<ion-icon name="sync-outline" class="spin"></ion-icon> Running Multi-Agent Flow...`;
-
-    // Reset steps
-    steps.forEach(s => s.classList.remove('active', 'completed'));
-    outputBox.textContent = "Initializing Multi-Agent AI Workflow...";
-
-    let currentStep = 0;
-
-    function executeNextStep() {
-      if (currentStep > 0) {
-        steps[currentStep - 1].classList.remove('active');
-        steps[currentStep - 1].classList.add('completed');
-      }
-
-      if (currentStep < steps.length) {
-        steps[currentStep].classList.add('active');
-        outputBox.textContent = simulationLogs[currentStep].log;
-        currentStep++;
-        setTimeout(executeNextStep, 1300);
-      } else {
-        steps[steps.length - 1].classList.remove('active');
-        steps[steps.length - 1].classList.add('completed');
-        
-        simBtn.disabled = false;
-        simBtn.innerHTML = `<ion-icon name="play-circle-outline"></ion-icon> Run Simulation Again`;
-        isRunning = false;
-      }
-    }
-
-    setTimeout(executeNextStep, 500);
-  });
-}
 
 /* ==========================================================================
    5. DYNAMIC PROJECT FILTERS & SEARCH
